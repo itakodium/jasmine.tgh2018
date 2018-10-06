@@ -1,0 +1,10 @@
+.gradle/
+.idea/
+app/google-services.json
+gradle/
+gradlew
+gradlew.bat
+local.properties
+jasmine.tgh2018.iml
+app/app.iml
+jasmine.tgh2018-master.iml
