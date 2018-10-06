@@ -12,18 +12,20 @@ public class MainActivity extends AppCompatActivity
 implements AdapterView.OnItemClickListener {
 
     private static Callee[] calleeList = {
-            new Callee("てんちゃん", R.drawable.tenchan0, "foo"),
-            new Callee("Duke mini", R.drawable.miniduke, "bar"),
-            new Callee("通りすがりの覆面ねこさん", R.drawable.fuku, "frob"),
-            new Callee("池猫1号2号", R.drawable.ikenekos, "frobboz"),
-            new Callee("Duke XS Max(Summer 2018)",R.drawable.duke_summer, "baz")
+            new Callee("じゅんこ", R.drawable.ashu, "foo"),
+            new Callee("emiko", R.drawable.nikukyu, "bar"),
+            new Callee("住田さん", R.drawable.nekochan, "frob"),
+            new Callee("鰈崎さん", R.drawable.karei, "frobboz"),
+            new Callee("土井さん",R.drawable.duke_summer, "baz")
     };
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
 
         ListView contactList = findViewById(R.id.contact_list);
         BaseAdapter adapter =

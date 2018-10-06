@@ -3,14 +3,19 @@ package com.example.takumi.uimock;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.Intent;
+import android.widget.Toast;
 
 
 public class CalleeDetailActivity extends AppCompatActivity {
+    private boolean cover;
     @Override
     protected void onCreate(Bundle savedState) {
         super.onCreate(savedState);
