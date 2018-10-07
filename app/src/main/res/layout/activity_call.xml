@@ -2,29 +2,116 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:id="@+id/content_frame"
-      >
-      <TextureView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/video"
-          android:layout_alignParentTop="true"
-          />
-      <Button
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentBottom="true"
-          android:layout_centerHorizontal="true"
-          android:layout_marginTop="20dp"
-          android:layout_marginBottom="20dp"
-          android:id="@+id/hangup_button"
-          android:text="通話終了"
-          />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/frame"
+        >
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/fireTopLayout"
+            android:background="#000"
+            android:keepScreenOn="true"
 
-  </RelativeLayout>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <!--
+            <TextureView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/video"
+                android:layout_alignParentTop="true"
+                />
+            -->
+            <com.google.firebase.samples.apps.mlkit.common.CameraSourcePreview
+                android:id="@+id/firePreview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft = "true"
+                android:layout_alignParentTop="true">
 
+                <com.google.firebase.samples.apps.mlkit.common.GraphicOverlay
+                    android:id="@+id/fireFaceOverlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft = "true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"/>
+            </com.google.firebase.samples.apps.mlkit.common.CameraSourcePreview>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/hangup_button"
+                android:text="通話終了"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/stamp_button"
+                android:text="スタンプ"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/process_button"
+                android:text="process"
+                />
+
+            <FrameLayout
+                android:id="@+id/control"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_toEndOf="@id/firePreview"
+                android:background="#000">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+
+                <ToggleButton
+                    android:id="@+id/facingSwitch"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@layout/toggle_style"
+                    android:textOff=""
+                    android:textOn=""
+                    android:checked="false" />
+
+            </FrameLayout>
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:visibility="invisible"
+            android:src="@drawable/cat"
+            android:id="@+id/stamp"
+            />
+    </FrameLayout>
 </android.support.constraint.ConstraintLayout>

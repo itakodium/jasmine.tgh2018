@@ -69,9 +69,9 @@ public class VideoCallActivity extends AppCompatActivity {
             }
         });
 
-        textureView = findViewById(R.id.video);
-        assert textureView != null;
-        textureView.setSurfaceTextureListener(txtrListener);
+        //textureView = findViewById(R.id.video);
+        //assert textureView != null;
+        //textureView.setSurfaceTextureListener(txtrListener);
     }
 
     TextureView.SurfaceTextureListener txtrListener = new TextureView.SurfaceTextureListener() {

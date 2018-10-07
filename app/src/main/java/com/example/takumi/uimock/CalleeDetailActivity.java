@@ -37,7 +37,8 @@ public class CalleeDetailActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), VideoCallActivity.class);
+                Intent i = new Intent(getApplication(), com.google.firebase.samples.apps.mlkit.java.LivePreviewActivity.class);
+                //Intent i = new Intent(getApplication(), VideoCallActivity.class);
                 i.putExtra("Text", selectedText);
                 i.putExtra("Number", selectedNumber);
 
