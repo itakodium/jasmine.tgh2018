@@ -75,14 +75,14 @@ public final class LivePreviewActivity extends AppCompatActivity
     Log.d(TAG, "onCreate");
     setContentView(R.layout.activity_call);
 
-    FirebaseOptions.Builder builder = new FirebaseOptions.Builder()
-            .setApplicationId("1:302939623826:android:a806387762327d53")
-            .setApiKey("AIzaSyBimnfffrARDetI2BtcKr6UkowfVLaBduw")
-            .setDatabaseUrl("https://myfirstfirebase-d4390.firebaseio.com")
-            .setStorageBucket("myfirstfirebase-d4390.appspot.com");
-
-    Context context = getApplicationContext();
-    FirebaseApp.initializeApp(context, builder.build());
+//    FirebaseOptions.Builder builder = new FirebaseOptions.Builder()
+//            .setApplicationId("1:302939623826:android:a806387762327d53")
+//            .setApiKey("AIzaSyBimnfffrARDetI2BtcKr6UkowfVLaBduw")
+//            .setDatabaseUrl("https://myfirstfirebase-d4390.firebaseio.com")
+//            .setStorageBucket("myfirstfirebase-d4390.appspot.com");
+//
+//    Context context = getApplicationContext();
+//    FirebaseApp.initializeApp(context, builder.build());
 
     preview = (CameraSourcePreview) findViewById(R.id.firePreview);
     if (preview == null) {

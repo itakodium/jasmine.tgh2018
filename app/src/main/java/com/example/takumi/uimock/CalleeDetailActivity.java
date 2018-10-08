@@ -13,8 +13,12 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.takumi.uimock.util.WebRTCHelper;
+
 
 public class CalleeDetailActivity extends AppCompatActivity {
+    private WebRTCHelper webRTCHelper;
+
     private boolean cover;
     @Override
     protected void onCreate(Bundle savedState) {
@@ -42,11 +46,27 @@ public class CalleeDetailActivity extends AppCompatActivity {
                 i.putExtra("Text", selectedText);
                 i.putExtra("Number", selectedNumber);
 
-                startActivity(i);
+                webRTCHelper.getPeerId(selectedText, i);
+
+//                webRTCHelper.showPeerIDs();
+//                webRTCHelper.onPeerSelected();
+//
+//                startActivity(i);
             }
         }
         );
 
+        webRTCHelper = WebRTCHelper.getInstance(this);
+
+        webRTCHelper.getAllPeers();
+    }
+
+    @Override
+    protected void onResume() {
+        if (webRTCHelper != null) {
+            webRTCHelper.setContext(this);
+        }
+        super.onResume();
     }
 
 }

@@ -2,14 +2,23 @@ package com.example.takumi.uimock;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.view.View;
 import android.content.Intent;
 
+import com.example.takumi.uimock.util.WebRTCHelper;
+import com.google.firebase.FirebaseApp;
+
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity
 implements AdapterView.OnItemClickListener {
+
+    private WebRTCHelper webRTCHelper;
+
 
     private static Callee[] calleeList = {
             new Callee("じゅんこ", R.drawable.ashu, "foo"),
@@ -19,13 +28,13 @@ implements AdapterView.OnItemClickListener {
             new Callee("土井さん",R.drawable.duke_summer, "baz")
     };
 
+    public static final String LOGIN_NAME = calleeList[new Random().nextInt(calleeList.length)].getName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
 
         ListView contactList = findViewById(R.id.contact_list);
         BaseAdapter adapter =
@@ -34,6 +43,18 @@ implements AdapterView.OnItemClickListener {
 
         contactList.setOnItemClickListener(this);
 
+        webRTCHelper = WebRTCHelper.getInstance(this);
+
+        setTitle(getTitle() + "【" + LOGIN_NAME + "】");
+    }
+
+
+    @Override
+    protected void onResume() {
+        if (webRTCHelper != null) {
+            webRTCHelper.setContext(this);
+        }
+        super.onResume();
     }
 
     @Override
@@ -50,5 +71,10 @@ implements AdapterView.OnItemClickListener {
         startActivity(intent);
     }
 
-
+    @Override
+    protected void onStop() {
+        Log.d("MainActivity", "logout");
+        webRTCHelper.logout();
+        super.onStop();
+    }
 }
